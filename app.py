@@ -36,10 +36,6 @@ def index():
                 error = f"Error inserting into database: {str(e)}"
     return render_template('index.html', error=error)
 
-@app.route('/success')
-def success():
-    return "Data submitted successfully"
-
 @app.route('/submittodoitem', methods=['POST'])
 def submittodoitem():
     item_name = request.form.get('itemName')
@@ -52,6 +48,10 @@ def submittodoitem():
         return redirect(url_for('todo'))  # or your success page
     else:
         return "Both fields required.", 400
+
+@app.route('/success')
+def success():
+    return "Data submitted successfully"
 
 if __name__ == '__main__':
     app.run(debug=True)

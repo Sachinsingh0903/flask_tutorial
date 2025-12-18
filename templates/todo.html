@@ -1,0 +1,17 @@
+<!-- templates/todo.html -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>To-Do Page</title>
+</head>
+<body>
+  <h2>To-Do Page</h2>
+  <form id="todo-form" action="/submittodoitem" method="post">
+    <label>Item Name:</label>
+    <input type="text" name="itemName" required><br>
+    <label>Item Description:</label>
+    <input type="text" name="itemDescription" required><br>
+    <button type="submit">Add To-Do Item</button>
+  </form>
+</body>
+</html>

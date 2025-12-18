@@ -40,5 +40,18 @@ def index():
 def success():
     return "Data submitted successfully"
 
+@app.route('/submittodoitem', methods=['POST'])
+def submittodoitem():
+    item_name = request.form.get('itemName')
+    item_description = request.form.get('itemDescription')
+    if item_name and item_description:
+        collection.insert_one({
+            'itemName': item_name,
+            'itemDescription': item_description
+        })
+        return redirect(url_for('todo'))  # or your success page
+    else:
+        return "Both fields required.", 400
+
 if __name__ == '__main__':
     app.run(debug=True)

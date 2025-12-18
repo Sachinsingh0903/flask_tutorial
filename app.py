@@ -40,9 +40,5 @@ def index():
 def success():
     return "Data submitted successfully"
 
-@app.route('/todo')
-def todo():
-    return render_template('todo.html')
-
 if __name__ == '__main__':
     app.run(debug=True)
